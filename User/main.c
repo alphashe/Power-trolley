@@ -11,7 +11,8 @@
 #include "EPWM.h"
 #include "LED.h"
 #include "OLED.h"
-#include "SPI.h"
+#include "PressKey.h"
+//#include "SPI.h"
 #include "oledchar.h"
 //定义变量
 
@@ -48,16 +49,16 @@ void main(void){
    // Key_Init();
    // EXTI1_Init();
 
-    //EPWM1_Init(5000);
+    EPWM1_Init(1500);   //150MHz 1500 => 100kHz
    // EPWM2_Init(5000);
-   // EPWM3_Init(5000);
+    EPWM3_Init(1500);
 
-  //  EPwm1A_SetCompare(1000);
-   // EPwm1B_SetCompare(1000);
+    EPwm1A_SetCompare(1000);
+    EPwm1B_SetCompare(1000);
   //  EPwm2A_SetCompare(1000);
   //  EPwm2B_SetCompare(1000);
-   // EPwm3A_SetCompare(1000);
-  //  EPwm3B_SetCompare(1000);
+    EPwm3A_SetCompare(1000);
+    EPwm3B_SetCompare(1000);
 
     //Init_Key_Time();
 	while(1){
