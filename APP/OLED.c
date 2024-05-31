@@ -157,7 +157,7 @@ void OLED_Clear(void){
         for(n=0;n<128;n++)
             OLED_GRAM[n][i]=0;//clear all data
     }
-    OLED_Refresh();//
+    //OLED_Refresh();//
 }
 
 void OLED_Refresh(void){
@@ -256,6 +256,8 @@ void OLED_ShowInt(Uint16 x, Uint16 y, Uint32 num, Uint16 mode){
     Uint16 bitnum=0;
     Uint32 temp = num;
     Uint16 i=0;
+    if(!num)
+        bitnum=1;
     while(temp){
         bitnum++;
         temp=temp/10;

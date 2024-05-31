@@ -14,6 +14,7 @@
 #include "PressKey.h"
 //#include "SPI.h"
 #include "oledchar.h"
+#include <Power_trolley.h>
 //定义变量
 
 
@@ -37,41 +38,33 @@ void main(void){
 	DELAY_US(100);
     LED_Init();
     //K2_Init();
-    DELAY_US(1000000);
+    DELAY_US(1000000);  //wait OLED charge
 
     OLED_Init();
     OLED_Clear();
     SPI_Init();
     OLED_ShowPicture(34, 2, 60, 60, BtPic, 1);
     OLED_Refresh();
+    OLED_Clear();
     DELAY_US(1000000);
    // ADC_Init();
    // Key_Init();
    // EXTI1_Init();
 
-    EPWM1_Init(1500);   //150MHz 1500 => 100kHz
-   // EPWM2_Init(5000);
-    EPWM3_Init(1500);
 
-    EPwm1A_SetCompare(1000);
-    EPwm1B_SetCompare(1000);
-  //  EPwm2A_SetCompare(1000);
-  //  EPwm2B_SetCompare(1000);
-    EPwm3A_SetCompare(1000);
-    EPwm3B_SetCompare(1000);
-
+    struct Powtrolley* ptrolley;
+    ptrolley = Power_trolley_Init();
     //Init_Key_Time();
 	while(1){
-	    DELAY_US(15*1000);
-	    OLED_ShowInt(121, 48, fx, 1);
-	    OLED_Refresh_fix(121, 127, 6);
-	    realtime=CpuTimer0Regs.TIM.all;
-	    OLED_ShowInt(0, 40, realtime, 1);
-	    OLED_Refresh_fix(0, 127, 5);
+	   Power_trolley_display(*ptrolley);
+	   ptrolley->targ_speed=20;
+	   Power_trolley_contr(*ptrolley);
 	   fx++;
 	   // if(fx==500000){
 	   //     LED4_TOGGLE;
 	   // }
+	   ptrolley->l_speed=fx;
+
 	    if(fx==9){
 
 	        fx=0;
