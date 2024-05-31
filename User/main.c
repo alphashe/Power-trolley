@@ -55,16 +55,17 @@ void main(void){
     struct Powtrolley* ptrolley;
     ptrolley = Power_trolley_Init();
     //Init_Key_Time();
+
 	while(1){
 	   Power_trolley_display(*ptrolley);
-	   ptrolley->targ_speed=20;
+	   ptrolley->targ_speed=30;
 	   Power_trolley_contr(*ptrolley);
 	   fx++;
 	   // if(fx==500000){
 	   //     LED4_TOGGLE;
 	   // }
-	   ptrolley->l_speed=fx;
-
+	   ptrolley->l_speed=fx*10;
+	   DELAY_US(1000000);
 	    if(fx==9){
 
 	        fx=0;
