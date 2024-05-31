@@ -58,7 +58,7 @@ void main(void){
 
 	while(1){
 	   Power_trolley_display(*ptrolley);
-	   ptrolley->targ_speed=00;
+	   ptrolley->targ_speed=0;
 	   Power_trolley_contr(*ptrolley);
 	   fx++;
 	   // if(fx==500000){
