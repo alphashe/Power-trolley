@@ -17,6 +17,7 @@ struct Powtrolley{
     char targ_speed;
     char r_speed;
     char l_speed;
+
 };
 struct Powtrolley* Power_trolley_Init(void);
 

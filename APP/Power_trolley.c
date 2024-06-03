@@ -57,7 +57,7 @@ void Power_trolley_display(struct Powtrolley temp){
 }
 
 void Power_trolley_contr(struct Powtrolley temp){
-    Uint16 target=0;
+    Uint16 target=1;
     if(temp.targ_speed>=0){
         target = temp.targ_speed * 15;  //pwm max:1500   targ_speed max:100
         EPwm1A_SetCompare(target);
