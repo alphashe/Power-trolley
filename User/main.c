@@ -67,7 +67,7 @@ void main(void){
 	   ptrolley->l_speed=fx*10;
 	   DELAY_US(1000000);
 	    if(fx==9){
-	        fx=0;
+
 	        fx=0;
 	    }
 	}
