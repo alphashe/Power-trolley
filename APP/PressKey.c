@@ -19,13 +19,13 @@ void Key_Init(void){
     GpioCtrlRegs.GPBDIR.bit.KO2IO = GPIODIR_OUTPUT;
     GpioCtrlRegs.GPBPUD.bit.KO2IO = GPIOPUD_PULLUP;
 
-    GpioCtrlRegs.GPCMUX2.bit.K3IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPCDIR.bit.K3IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPCPUD.bit.K3IO = GPIOPUD_PULLUP;
+    GpioCtrlRegs.GPCMUX2.bit.KI1IO = GPIOMUX_GPIO;
+    GpioCtrlRegs.GPCDIR.bit.KI1IO = GPIODIR_INPUT;
+    GpioCtrlRegs.GPCPUD.bit.KI1IO = GPIOPUD_PULLUP;
 
-    GpioCtrlRegs.GPAMUX2.bit.K4IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPADIR.bit.K4IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPAPUD.bit.K4IO = GPIOPUD_PULLUP;
+    GpioCtrlRegs.GPBMUX1.bit.KI2IO = GPIOMUX_GPIO;
+    GpioCtrlRegs.GPBDIR.bit.KI2IO = GPIODIR_INPUT;
+    GpioCtrlRegs.GPBPUD.bit.KI2IO = GPIOPUD_PULLUP;
 
 
     EDIS;
