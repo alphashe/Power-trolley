@@ -27,7 +27,8 @@ void Key_Init(void){
     GpioCtrlRegs.GPBDIR.bit.KI2IO = GPIODIR_INPUT;
     GpioCtrlRegs.GPBPUD.bit.KI2IO = GPIOPUD_PULLUP;
 
-
+    KO1_L;
+    KO2_L;
     EDIS;
 
 }

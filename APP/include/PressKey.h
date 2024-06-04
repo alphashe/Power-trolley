@@ -19,10 +19,10 @@
 #define KI1 GpioDataRegs.GPCDAT.bit.KI1IO
 #define KI2 GpioDataRegs.GPBDAT.bit.KI2IO
 
-#define KO1IO_H GpioDataRegs.GPCSET.bit.SCL=1
-#define KO1IO_L GpioDataRegs.GPCCLEAR.bit.SCL=1
-#define KO2IO_H GpioDataRegs.GPCBDAT.bit.GPBSET
-#define KO2IO_L GpioDataRegs.GPCBAT.bit.GPBCLEAR
+#define KO1_H GpioDataRegs.GPCSET.bit.SCL=1
+#define KO1_L GpioDataRegs.GPCCLEAR.bit.SCL=1
+#define KO2_H GpioDataRegs.GPCBDAT.bit.GPBSET
+#define KO2_L GpioDataRegs.GPCBAT.bit.GPBCLEAR
 
 void PressKey_Init(void);
 U8 Scan_PressKey(void);
