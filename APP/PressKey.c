@@ -11,13 +11,13 @@ void Key_Init(void){
     EALLOW;
     SysCtrlRegs.PCLKCR3.bit.GPIOINENCLK = 1;    //enable GPIO input clock
 
-    GpioCtrlRegs.GPBMUX1.bit.K1IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPBDIR.bit.K1IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPBPUD.bit.K1IO = GPIOPUD_PULLUP;
+    GpioCtrlRegs.GPCMUX1.bit.KO1IO = GPIOMUX_GPIO;
+    GpioCtrlRegs.GPCDIR.bit.KO1IO = GPIODIR_OUTPUT;
+    GpioCtrlRegs.GPCPUD.bit.KO1IO = GPIOPUD_PULLUP;
 
-    GpioCtrlRegs.GPCMUX1.bit.K2IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPCDIR.bit.K2IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPCPUD.bit.K2IO = GPIOPUD_PULLUP;
+    GpioCtrlRegs.GPBMUX1.bit.KO2IO = GPIOMUX_GPIO;
+    GpioCtrlRegs.GPBDIR.bit.KO2IO = GPIODIR_OUTPUT;
+    GpioCtrlRegs.GPBPUD.bit.KO2IO = GPIOPUD_PULLUP;
 
     GpioCtrlRegs.GPCMUX2.bit.K3IO = GPIOMUX_GPIO;
     GpioCtrlRegs.GPCDIR.bit.K3IO = GPIODIR_INPUT;
@@ -27,17 +27,6 @@ void Key_Init(void){
     GpioCtrlRegs.GPADIR.bit.K4IO = GPIODIR_INPUT;
     GpioCtrlRegs.GPAPUD.bit.K4IO = GPIOPUD_PULLUP;
 
-    GpioCtrlRegs.GPBMUX1.bit.K5IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPBDIR.bit.K5IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPBPUD.bit.K5IO = GPIOPUD_PULLUP;
-
-    GpioCtrlRegs.GPAMUX2.bit.K6IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPADIR.bit.K6IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPAPUD.bit.K6IO = GPIOPUD_PULLUP;
-
-    GpioCtrlRegs.GPAMUX2.bit.K7IO = GPIOMUX_GPIO;
-    GpioCtrlRegs.GPADIR.bit.K7IO = GPIODIR_INPUT;
-    GpioCtrlRegs.GPAPUD.bit.K7IO = GPIOPUD_PULLUP;
 
     EDIS;
 

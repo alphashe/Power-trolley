@@ -11,22 +11,18 @@
 #include "DSP2833x_Device.h"
 #include "DSP2833x_Examples.h"
 
-#define K1IO GPIO35
-#define K2IO GPIO72
-#define K3IO GPIO80
-#define K4IO GPIO28
-#define K5IO GPIO40
-#define K6IO GPIO30
-#define K7IO GPIO29
+#define KO1IO GPIO79
+#define KO2IO GPIO44
+#define KI1IO GPIO80
+#define KI2IO GPIO39
 
-#define K1 GpioDataRegs.GPBDAT.bit.K1IO
-#define K2 GpioDataRegs.GPCDAT.bit.K2IO
-#define K3 GpioDataRegs.GPCDAT.bit.K3IO
-#define K4 GpioDataRegs.GPADAT.bit.K4IO
-#define K5 GpioDataRegs.GPBDAT.bit.K5IO
-#define K6 GpioDataRegs.GPADAT.bit.K6IO
-#define K7 GpioDataRegs.GPADAT.bit.K7IO
+#define KI1 GpioDataRegs.GPCDAT.bit.KI1IO
+#define KI2 GpioDataRegs.GPBDAT.bit.KI2IO
 
+#define KO1IO_H GpioDataRegs.GPCSET.bit.SCL=1
+#define KO1IO_L GpioDataRegs.GPCCLEAR.bit.SCL=1
+#define KO2IO_H GpioDataRegs.GPCBDAT.bit.GPBSET
+#define KO2IO_L GpioDataRegs.GPCBAT.bit.GPBCLEAR
 
 void PressKey_Init(void);
 U8 Scan_PressKey(void);
