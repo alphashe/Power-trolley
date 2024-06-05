@@ -69,43 +69,46 @@ InitEQep1Gpio(void)
     // This will enable the pullups for the specified pins.
     // Comment out other unwanted lines.
     //
+    /*
     GpioCtrlRegs.GPAPUD.bit.GPIO20 = 0;   // Enable pull-up on GPIO20 (EQEP1A)
     GpioCtrlRegs.GPAPUD.bit.GPIO21 = 0;   // Enable pull-up on GPIO21 (EQEP1B)
     GpioCtrlRegs.GPAPUD.bit.GPIO22 = 0;   // Enable pull-up on GPIO22 (EQEP1S)
-    GpioCtrlRegs.GPAPUD.bit.GPIO23 = 0;   // Enable pull-up on GPIO23 (EQEP1I)
-    //GpioCtrlRegs.GPBPUD.bit.GPIO50 = 0;  // Enable pull-up on GPIO50 (EQEP1A)
-    //GpioCtrlRegs.GPBPUD.bit.GPIO51 = 0;  // Enable pull-up on GPIO51 (EQEP1B)
-    //GpioCtrlRegs.GPBPUD.bit.GPIO52 = 0;  // Enable pull-up on GPIO52 (EQEP1S)
-    //GpioCtrlRegs.GPBPUD.bit.GPIO53 = 0;  // Enable pull-up on GPIO53 (EQEP1I)
+    GpioCtrlRegs.GPAPUD.bit.GPIO23 = 0;   // Enable pull-up on GPIO23 (EQEP1I)*/
+    GpioCtrlRegs.GPBPUD.bit.GPIO50 = 0;  // Enable pull-up on GPIO50 (EQEP1A)
+    GpioCtrlRegs.GPBPUD.bit.GPIO51 = 0;  // Enable pull-up on GPIO51 (EQEP1B)
+    GpioCtrlRegs.GPBPUD.bit.GPIO52 = 0;  // Enable pull-up on GPIO52 (EQEP1S)
+    GpioCtrlRegs.GPBPUD.bit.GPIO53 = 0;  // Enable pull-up on GPIO53 (EQEP1I)
 
     //
     // Inputs are synchronized to SYSCLKOUT by default.
     // Comment out other unwanted lines.
     //
+    /*
     GpioCtrlRegs.GPAQSEL2.bit.GPIO20 = 0;  // Sync to SYSCLKOUT GPIO20 (EQEP1A)
     GpioCtrlRegs.GPAQSEL2.bit.GPIO21 = 0;  // Sync to SYSCLKOUT GPIO21 (EQEP1B)
     GpioCtrlRegs.GPAQSEL2.bit.GPIO22 = 0;  // Sync to SYSCLKOUT GPIO22 (EQEP1S)
-    GpioCtrlRegs.GPAQSEL2.bit.GPIO23 = 0;  // Sync to SYSCLKOUT GPIO23 (EQEP1I)
+    GpioCtrlRegs.GPAQSEL2.bit.GPIO23 = 0;  // Sync to SYSCLKOUT GPIO23 (EQEP1I)*/
 
-    //GpioCtrlRegs.GPBQSEL2.bit.GPIO50 = 0;  //Sync to SYSCLKOUT GPIO50(EQEP1A)
-    //GpioCtrlRegs.GPBQSEL2.bit.GPIO51 = 0;  //Sync to SYSCLKOUT GPIO51(EQEP1B)
-    //GpioCtrlRegs.GPBQSEL2.bit.GPIO52 = 0;  //Sync to SYSCLKOUT GPIO52(EQEP1S)
-    //GpioCtrlRegs.GPBQSEL2.bit.GPIO53 = 0;  //Sync to SYSCLKOUT GPIO53(EQEP1I)
+    GpioCtrlRegs.GPBQSEL2.bit.GPIO50 = 0;  //Sync to SYSCLKOUT GPIO50(EQEP1A)
+    GpioCtrlRegs.GPBQSEL2.bit.GPIO51 = 0;  //Sync to SYSCLKOUT GPIO51(EQEP1B)
+    GpioCtrlRegs.GPBQSEL2.bit.GPIO52 = 0;  //Sync to SYSCLKOUT GPIO52(EQEP1S)
+    GpioCtrlRegs.GPBQSEL2.bit.GPIO53 = 0;  //Sync to SYSCLKOUT GPIO53(EQEP1I)
 
     //
     // Configure eQEP-1 pins using GPIO regs
     // This specifies which of the possible GPIO pins will be eQEP1 functional 
     // pins. Comment out other unwanted lines.
     //
+    /*
     GpioCtrlRegs.GPAMUX2.bit.GPIO20 = 1;   // Configure GPIO20 as EQEP1A
     GpioCtrlRegs.GPAMUX2.bit.GPIO21 = 1;   // Configure GPIO21 as EQEP1B
     GpioCtrlRegs.GPAMUX2.bit.GPIO22 = 1;   // Configure GPIO22 as EQEP1S
-    GpioCtrlRegs.GPAMUX2.bit.GPIO23 = 1;   // Configure GPIO23 as EQEP1I
+    GpioCtrlRegs.GPAMUX2.bit.GPIO23 = 1;   // Configure GPIO23 as EQEP1I*/
 
-    //GpioCtrlRegs.GPBMUX2.bit.GPIO50 = 1;   // Configure GPIO50 as EQEP1A
-    //GpioCtrlRegs.GPBMUX2.bit.GPIO51 = 1;   // Configure GPIO51 as EQEP1B
-    //GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 1;   // Configure GPIO52 as EQEP1S
-    //GpioCtrlRegs.GPBMUX2.bit.GPIO53 = 1;   // Configure GPIO53 as EQEP1I
+    GpioCtrlRegs.GPBMUX2.bit.GPIO50 = 1;   // Configure GPIO50 as EQEP1A
+    GpioCtrlRegs.GPBMUX2.bit.GPIO51 = 1;   // Configure GPIO51 as EQEP1B
+    GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 1;   // Configure GPIO52 as EQEP1S
+    GpioCtrlRegs.GPBMUX2.bit.GPIO53 = 1;   // Configure GPIO53 as EQEP1I
 
     EDIS;
 }

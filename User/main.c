@@ -56,7 +56,7 @@ void main(void){
     ptrolley->targ_speed=0;
 
 	while(1){
-	    ptrolley->l_speed = QEP_pos_speed_get_Calc();
+	    ptrolley->speed = QEP_pos_speed_get_Calc();
 	    Power_trolley_display(*ptrolley);
 	    Power_trolley_contr(*ptrolley);
 	    if(Scan_PressKey() == 1){
@@ -70,6 +70,10 @@ void main(void){
 	            ptrolley->targ_speed--;
 	        else
 	            ptrolley->targ_speed=-95;
+
+
+
+
 	}
 }
 

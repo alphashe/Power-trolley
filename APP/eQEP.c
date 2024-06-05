@@ -10,7 +10,7 @@
  unsigned int motor_speed=0;
  int DirectionQep=0;
 //extern int LineEncoder;
- int Encoder_N=2000;
+ int Encoder_N=4000;
  float Speed_Mr_RPM=0;
  Uint32 Position_k_1=0;
  Uint32 Position_k=0;
@@ -33,12 +33,11 @@ void Frencal_Init(void){
     EQep1Regs.QUPRD = 100000;  //1000Hz
 #endif
 
-    EQep1Regs.QDECCTL.bit.QSRC = 2;     //up count mode //freq measurement
+    EQep1Regs.QDECCTL.bit.QSRC = 0;     // Quadrature count mode  //freq measurement
     EQep1Regs.QDECCTL.bit.XCR = 0;      //2x resolution cnt falling and rising edges
 
     EQep1Regs.QEPCTL.bit.FREE_SOFT = 2;
     EQep1Regs.QEPCTL.bit.PCRM = 00;     //QPOSCNT reset on index event
-    //EQep1Regs.QEPCTL.bit.PCRM = 3;     //QPOSCNT reset on unit time event
     EQep1Regs.QEPCTL.bit.UTE = 1;       //Unit Timer out Enable
     EQep1Regs.QEPCTL.bit.QCLM = 1;      //latch on unit time out
     EQep1Regs.QPOSMAX = Encoder_N;
@@ -55,8 +54,8 @@ void Frencal_Init(void){
 
 }
 
-Uint32 QEP_pos_speed_get_Calc(void){
-    Uint32 tmp1;
+int32 QEP_pos_speed_get_Calc(void){
+    int32 tmp1;
 
     DirectionQep=EQep1Regs.QEPSTS.bit.QDF; //检测转动方向
 
@@ -76,19 +75,11 @@ Uint32 QEP_pos_speed_get_Calc(void){
                 tmp1=Position_k_1 - Position_k;//当前位置还没有过零
             else
                 tmp1=Encoder_N+(Position_k_1 - Position_k);//当前位置已过零
+            tmp1 = -tmp1;
         }
-        //Speed_Mr_RPM=(tmp1/80)*60;//转/分钟
+
         Position_k=Position_k_1;//更新上一次位置
-        EQep1Regs.QCLR.bit.UTO=1;
-        /*
-        if(delay_show%1000==0){//1秒显示一次
-            motor_speed=Speed_Mr_RPM;
-            LCD_ShowNum(7,0,motor_speed/100%10);//显示百位
-            LCD_ShowNum(8,0,motor_speed/10%10);//显示十位
-            LCD_ShowNum(9,0,motor_speed/1%10);//显示个位
-            delay_show=0;
-        }
-        */
+        EQep1Regs.QCLR.bit.UTO=1;   //清楚中断标志
 
     }
     return tmp1;

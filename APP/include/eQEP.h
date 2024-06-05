@@ -21,6 +21,6 @@ extern Uint32 Position_k;
 
 void eQEP_Init(void);
 void Frencal_Init(void);
-Uint32 QEP_pos_speed_get_Calc(void);
+int32 QEP_pos_speed_get_Calc(void);
 
 #endif /* APP_INCLUDE_EQEP_H_ */
