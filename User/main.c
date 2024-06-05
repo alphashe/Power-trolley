@@ -16,6 +16,7 @@
 #include "oledchar.h"
 #include <Power_trolley.h>
 #include <PressKey.h>
+#include <eQEP.h>
 //定义变量
 
 
@@ -25,7 +26,7 @@ void main(void){
 
     InitSysCtrl();
     //DINT;
-    Uint16 fx = 0;
+    //Uint16 fx = 0;
 
 	InitPieCtrl();
 	IER = 0x0000;   //disable all interrupt
@@ -44,6 +45,8 @@ void main(void){
     OLED_Refresh();
     OLED_Clear();
     PressKey_Init();
+
+    eQEP_Init();
     DELAY_US(1000000);
    // ADC_Init();
 
@@ -53,20 +56,20 @@ void main(void){
     ptrolley->targ_speed=0;
 
 	while(1){
-	   Power_trolley_display(*ptrolley);
-	   Power_trolley_contr(*ptrolley);
-	   if(Scan_PressKey() == 1){
-	       if(ptrolley->targ_speed<99)
-	           ptrolley->targ_speed++;
-	       else
-	           ptrolley->targ_speed=1;
-	   }
-	   if(Scan_PressKey() == 2)
-	       if(ptrolley->targ_speed>0)
-           ptrolley->targ_speed--;
-       else
-           ptrolley->targ_speed=99;
-
+	    ptrolley->l_speed = QEP_pos_speed_get_Calc();
+	    Power_trolley_display(*ptrolley);
+	    Power_trolley_contr(*ptrolley);
+	    if(Scan_PressKey() == 1){
+	        if(ptrolley->targ_speed<95)
+	            ptrolley->targ_speed++;
+	        else
+	            ptrolley->targ_speed=95;
+	    }
+	    if(Scan_PressKey() == 2)
+	        if(ptrolley->targ_speed>-95)
+	            ptrolley->targ_speed--;
+	        else
+	            ptrolley->targ_speed=-95;
 	}
- }
+}
 

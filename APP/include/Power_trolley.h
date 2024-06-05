@@ -14,7 +14,7 @@
 #include "OLED.h"
 
 struct Powtrolley{
-    char targ_speed;
+    int targ_speed;
     char r_speed;
     char l_speed;
 

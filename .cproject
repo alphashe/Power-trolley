@@ -40,7 +40,6 @@
 									<listOptionValue builtIn="false" value="C:\electr\DSP28335\Power_trolley\APP\include"/>
 									<listOptionValue builtIn="false" value="C:\electr\DSP28335\Power_trolley\DSP2833x_Libraries"/>
 									<listOptionValue builtIn="false" value="C:\electr\ccs10\ccs\tools\compiler\ti-cgt-c2000_20.2.1.LTS\include"/>
-									<listOptionValue builtIn="false" value="C:\ti\ccs1230\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\include"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.DEBUGGING_MODEL.140040860" name="Debugging model" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.DEBUGGING_MODEL" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.DEBUGGING_MODEL.SYMDEBUG__DWARF" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.DIAG_WARNING.961727411" name="Treat diagnostic &lt;id&gt; as warning (--diag_warning, -pdsw)" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.DIAG_WARNING" valueType="stringList">
