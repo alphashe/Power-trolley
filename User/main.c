@@ -15,6 +15,7 @@
 //#include "SPI.h"
 #include "oledchar.h"
 #include <Power_trolley.h>
+#include <PressKey.h>
 //定义变量
 
 
@@ -24,52 +25,48 @@ void main(void){
 
     InitSysCtrl();
     //DINT;
-    Uint16 fx = 0, data_recive=0, data_trans=0;
-    Uint16 i=0;
-    Uint32 realtime=0;
-    Uint32 shownum=0;
+    Uint16 fx = 0;
+
 	InitPieCtrl();
 	IER = 0x0000;   //disable all interrupt
 	IFR = 0x0000;   //clear all interrupt flag
 	InitPieVectTable();
 
-	//sdf
+	//
 	TIM0_Init(150-1, 700000-1);    //150MHz 150 divide ->1uS, count 700*1000  ->700mS
 	DELAY_US(100);
     LED_Init();
-    //K2_Init();
     DELAY_US(1000000);  //wait OLED charge
 
     OLED_Init();
     OLED_Clear();
-    SPI_Init();
     OLED_ShowPicture(34, 2, 60, 60, BtPic, 1);
     OLED_Refresh();
     OLED_Clear();
+    PressKey_Init();
     DELAY_US(1000000);
    // ADC_Init();
-   // Key_Init();
-   // EXTI1_Init();;;;;
 
 
     struct Powtrolley* ptrolley;
     ptrolley = Power_trolley_Init();
-    //Init_Key_Time();
+    ptrolley->targ_speed=0;
 
 	while(1){
 	   Power_trolley_display(*ptrolley);
-	   ptrolley->targ_speed=0;
 	   Power_trolley_contr(*ptrolley);
-	   fx++;
-	   // if(fx==500000){
-	   //     LED4_TOGGLE;
-	   // }
-	   ptrolley->l_speed=fx*10;
-	   DELAY_US(1000000);
-	    if(fx==9){
-	          fx=0;
-	        fx=0;
-	    }
+	   if(Scan_PressKey() == 1){
+	       if(ptrolley->targ_speed<99)
+	           ptrolley->targ_speed++;
+	       else
+	           ptrolley->targ_speed=1;
+	   }
+	   if(Scan_PressKey() == 2)
+	       if(ptrolley->targ_speed>0)
+           ptrolley->targ_speed--;
+       else
+           ptrolley->targ_speed=99;
+
 	}
  }
 
